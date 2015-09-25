@@ -44,6 +44,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
     }
     
+    //to hide the page control that's automatically created by UIPageViewController, comment out the below functions
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return views.count
     }

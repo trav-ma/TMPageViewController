@@ -47,8 +47,6 @@ extension ContainerViewController: UIPageViewControllerDataSource, UIPageViewCon
         let vc = viewController as! PageContentViewController
         let idx = vc.index + 1
         if idx < views.count {
-            pageControl.currentPage = idx
-            currentIndex = idx
             return views[idx]
         } else {
             return nil
@@ -59,20 +57,16 @@ extension ContainerViewController: UIPageViewControllerDataSource, UIPageViewCon
         let vc = viewController as! PageContentViewController
         let idx = vc.index - 1
         if idx >= 0 {
-            pageControl.currentPage = idx
-            currentIndex = idx
             return views[idx]
         } else {
             return nil
         }
     }
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return views.count
-    }
-    
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 0
+    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
+        let vc = pendingViewControllers[0] as! PageContentViewController
+        pageControl.currentPage = vc.index
+        currentIndex = vc.index
     }
     
 }
