@@ -10,3 +10,7 @@ Includes:
 3) Programmatic UIPageControl management
 
 ![alt tag](https://raw.githubusercontent.com/dstarsboy/PageViewController/master/Image.png)
+
+![alt tag](https://raw.githubusercontent.com/dstarsboy/PageViewController/master/Container.png)
+
+![alt tag](https://raw.githubusercontent.com/dstarsboy/PageViewController/master/FullScreen.png)
