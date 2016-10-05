@@ -1,18 +1,20 @@
-# PageViewController
-Swift 2.0 / Xcode 7 / iOS9
+# TMPageViewController
 
-Example code for how to use UIPageViewController in Storyboard. 
+Swift 3.0 / Xcode 8 / iOS10
 
-Includes:
+Demo app showing 
+1) how to use storyboard to set up a page view controller. Example shows doing this inside of a containerView as well as full screen.
+2) how to reuse the same view controller repeatedly inside of a page view controller.
+3) how to use a page control
 
-1) Standalone UIPageViewController launch example 
+App
 
-2) Embedded UIContainerViewController example
+![alt tag](https://raw.githubusercontent.com/dstarsboy/TMPageViewController/master/1.png)
 
-3) Programmatic UIPageControl management
+![alt tag](https://raw.githubusercontent.com/dstarsboy/TMPageViewController/master/2.png)
 
-![alt tag](https://raw.githubusercontent.com/dstarsboy/PageViewController/master/Image.png)
+![alt tag](https://raw.githubusercontent.com/dstarsboy/TMPageViewController/master/3.png)
 
-![alt tag](https://raw.githubusercontent.com/dstarsboy/PageViewController/master/Container.png)
+Storyboard
 
-![alt tag](https://raw.githubusercontent.com/dstarsboy/PageViewController/master/FullScreen.png)
+![alt tag](https://raw.githubusercontent.com/dstarsboy/TMPageViewController/master/4.png)

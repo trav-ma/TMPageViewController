@@ -18,8 +18,8 @@ class ContainerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in 0..<pages {
-            if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PageContentViewController") as? PageContentViewController {
+        for i in 0 ..< pages {
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "PageContentViewController") as? PageContentViewController {
                 vc.index = i
                 views.append(vc)
             }
@@ -27,15 +27,15 @@ class ContainerViewController: UIViewController {
         pageViewController = self.childViewControllers[0] as? UIPageViewController
         pageViewController!.delegate = self
         pageViewController!.dataSource = self
-        pageViewController!.setViewControllers([views[0]], direction: .Forward, animated: true, completion: nil)
+        pageViewController!.setViewControllers([views[0]], direction: .forward, animated: true, completion: nil)
         pageControl.numberOfPages = pages
     }
 
-    @IBAction func pageControlValueChanged(sender: UIPageControl) {
+    @IBAction func pageControlValueChanged(_ sender: UIPageControl) {
         if sender.currentPage > currentIndex {
-            pageViewController!.setViewControllers([views[sender.currentPage]], direction: .Forward, animated: true, completion: nil)
+            pageViewController!.setViewControllers([views[sender.currentPage]], direction: .forward, animated: true, completion: nil)
         } else {
-            pageViewController!.setViewControllers([views[sender.currentPage]], direction: .Reverse, animated: true, completion: nil)
+            pageViewController!.setViewControllers([views[sender.currentPage]], direction: .reverse, animated: true, completion: nil)
         }
         currentIndex = sender.currentPage
     }
@@ -43,7 +43,7 @@ class ContainerViewController: UIViewController {
 
 extension ContainerViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let vc = viewController as! PageContentViewController
         let idx = vc.index + 1
         if idx < views.count {
@@ -53,7 +53,7 @@ extension ContainerViewController: UIPageViewControllerDataSource, UIPageViewCon
         }
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let vc = viewController as! PageContentViewController
         let idx = vc.index - 1
         if idx >= 0 {
@@ -63,7 +63,7 @@ extension ContainerViewController: UIPageViewControllerDataSource, UIPageViewCon
         }
     }
     
-    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
         let vc = pendingViewControllers[0] as! PageContentViewController
         pageControl.currentPage = vc.index
         currentIndex = vc.index

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PageViewController.xcodeproj">
+      location = "self:TMPageViewController.xcodeproj">
    </FileRef>
 </Workspace>

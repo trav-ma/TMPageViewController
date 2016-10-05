@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  PageViewController
+//  TMPageViewController
 //
-//  Created by Travis Ma on 9/24/15.
-//  Copyright © 2015 Travis Ma. All rights reserved.
+//  Created by Travis Ma on 8/1/16.
+//  Copyright © 2016 Travis Ma. All rights reserved.
 //
 
 import UIKit
@@ -11,13 +11,13 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var labelPageViews: UILabel!
     @IBOutlet weak var stepper: UIStepper!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         labelPageViews.text = "\(Int(stepper.value))"
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "seguePageFlip" {
             let vc = segue.destinationViewController as! PageViewController
             vc.pages = Int(stepper.value)
@@ -29,8 +29,8 @@ class ViewController: UIViewController {
             return
         }
     }
-
-    @IBAction func stepperTap(sender: UIStepper) {
+    
+    @IBAction func stepperTap(_ sender: UIStepper) {
         labelPageViews.text = "\(Int(stepper.value))"
     }
 }
