@@ -17,14 +17,14 @@ class ViewController: UIViewController {
         labelPageViews.text = "\(Int(stepper.value))"
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "seguePageFlip" {
-            let vc = segue.destinationViewController as! PageViewController
+            let vc = segue.destination as! PageViewController
             vc.pages = Int(stepper.value)
             return
         }
         if segue.identifier == "segueContainerView" {
-            let vc = segue.destinationViewController as! ContainerViewController
+            let vc = segue.destination as! ContainerViewController
             vc.pages = Int(stepper.value)
             return
         }
