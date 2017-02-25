@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         }
         if segue.identifier == "segueContainerView" {
             let vc = segue.destination as! ContainerViewController
-            vc.pages = Int(stepper.value)
+            vc.pageCount = Int(stepper.value)
             return
         }
     }
